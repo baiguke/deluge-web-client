@@ -1,0 +1,16 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "parser": "babel-eslint",
+  "rules": {
+    "prefer-promise-reject-errors": 0,
+    "react/prefer-stateless-function": 0,
+    "react/require-default-props": 0,
+    "react/jsx-closing-tag-location": 0,
+    "react/jsx-filename-extension": 0,
+    "jsx-a11y/label-has-for": 1,
+    "no-use-before-define": ["error", "nofunc"]
+  },
+  "env": {
+    "browser": true
+  }
+}
