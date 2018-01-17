@@ -14,7 +14,7 @@ function makeRequest({ method, params = [] }) {
       params
     })
     .then((json) => {
-      if (json.error) return Promise.reject(json);
+      if (json.error) return Promise.reject(json.error);
       if (!json.result) return Promise.reject(json);
       return json;
     });

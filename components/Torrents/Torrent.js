@@ -5,7 +5,7 @@ import classNames from "classnames";
 const Torrent = ({ className, torrent, onDelete }) => (
   <li className={classNames("Torrent", className)}>
     <span>{torrent.name}</span>
-    <button onCLick={() => onDelete(torrent.hash)}>Delete</button>
+    <button onClick={() => onDelete(torrent.hash)}>Delete</button>
     <style jsx>{`
       .Torrent {
         align-items: center;

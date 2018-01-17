@@ -26,10 +26,15 @@ class Index extends Component {
 
   onLogin = () => {
     this.setState({ isAuthenticated: true });
+    this.fetchTorrents();
   };
 
   onAdd = (magnetLink) => {
     delugeWebApi.addTorrent(magnetLink);
+  };
+
+  onDelete = (hash) => {
+    delugeWebApi.removeTorrent(hash);
   };
 
   fetchTorrents = () => {
@@ -59,7 +64,7 @@ class Index extends Component {
         </header>
         <main>
           {!isAuthenticated && <Login onLogin={this.onLogin} />}
-          <TorrentList torrents={torrents} />
+          <TorrentList torrents={torrents} onDelete={this.onDelete} />
           <AddTorrent addTorrent={this.onAdd} />
         </main>
         <footer>

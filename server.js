@@ -1,8 +1,9 @@
 const express = require("express");
 const next = require("next");
 const proxy = require("http-proxy-middleware");
+require("dotenv").config();
 
-const url = `${process.env.DELUGE_HOST || "http://192.168.1.31:8112"}`;
+const url = process.env.DELUGE_HOST;
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });

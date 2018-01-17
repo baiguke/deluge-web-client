@@ -14,7 +14,7 @@ class Login extends Component {
   render() {
     return (
       <form onSubmit={this.login} className="Login">
-        <input type="password" name={PASSWORD_INPUT_NAME} placeholder="password" />
+        <input type="password" autoComplete="deluge-password" name={PASSWORD_INPUT_NAME} placeholder="password" />
         <button type="submit">Log in</button>
         <style jsx>{`
           .Login {
