@@ -13,6 +13,9 @@
     "*.js": ["eslint", "prettier --write", "git add"],
     "*.{json,css,md}": ["prettier --write", "git add"]
   },
+  "engines": {
+    "node": "9"
+  },
   "keywords": [],
   "author": "hontas",
   "license": "ISC",
