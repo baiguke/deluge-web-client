@@ -58,7 +58,7 @@ class Index extends Component {
           {isFetching && <div className="spinner" />}
         </header>
         <main>
-          {isAuthenticated && <Login onLogin={this.onLogin} />}
+          {!isAuthenticated && <Login onLogin={this.onLogin} />}
           <TorrentList torrents={torrents} />
           <AddTorrent addTorrent={this.onAdd} />
         </main>
@@ -181,6 +181,7 @@ class Index extends Component {
 
           button {
             border-color: rgba(127, 127, 127, 0.5);
+            min-width: 60px;
           }
         `}</style>
       </div>
