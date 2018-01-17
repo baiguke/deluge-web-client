@@ -13,7 +13,7 @@ const Header = ({ className, title, isFetching }) => (
       <meta name="theme-color" content={primaryColor} key="themeColor" />
       <link rel="manifest" href="/static/manifest.json" />
 
-      <meta name="metaDescription" content="Deluge web client for mobile" key="description" />
+      <meta name="metaDescription" content="Deluge mobile client" key="description" />
       <link rel="shortcut icon" href="/static/icons/deluge.png" type="image/png" key="shortcutIcon" />
       <link rel="icon" href="/static/icons/deluge.png" type="image/png" key="icon" />
       <link

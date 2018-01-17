@@ -1,4 +1,4 @@
-## Deluge web client
+## Deluge mobile
 
 ```shell
 npm install && npm run dev

@@ -50,7 +50,7 @@ class Index extends Component {
 
   render() {
     const { isAuthenticated, isFetching, torrents } = this.state;
-    const title = "Deluge web";
+    const title = "Deluge mobile";
     return (
       <div className="Index">
         <Header title={title} isFetching={isFetching} />
