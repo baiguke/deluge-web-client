@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Head from "next/head";
 
 import * as delugeWebApi from "../utils/delugeWebApi";
 
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import Login from "../components/Login/Login";
 import TorrentList from "../components/Torrents/TorrentList";
 import AddTorrent from "../components/Torrents/AddTorrent";
@@ -52,38 +53,13 @@ class Index extends Component {
     const title = "Deluge web client";
     return (
       <div className="Index">
-        <Head>
-          <title>{title}</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-          <meta name="metaDescription" content="Deluge web client for mobile" key="description" />
-          <meta name="theme-color" content="whitesmoke" key="theme" />
-        </Head>
-        <header>
-          <h1>{title}</h1>
-          {isFetching && <div className="spinner" />}
-        </header>
+        <Header title={title} isFetching={isFetching} />
         <main>
           {!isAuthenticated && <Login onLogin={this.onLogin} />}
           <TorrentList torrents={torrents} onDelete={this.onDelete} />
           <AddTorrent addTorrent={this.onAdd} />
         </main>
-        <footer>
-          <p>
-            Built with{" "}
-            <span role="img" aria-label="heart">
-              ❤
-            </span>{" "}
-            by{" "}
-            <a className="animated" href="https://github.com/hontas">
-              hontas
-            </a>
-          </p>
-          <p>
-            <a className="animated" href="https://github.com/hontas/">
-              GitHub
-            </a>
-          </p>
-        </footer>
+        <Footer />
         <style jsx>{`
           .Index {
             display: flex;
@@ -93,67 +69,6 @@ class Index extends Component {
 
           main {
             flex: 1;
-          }
-
-          header,
-          footer {
-            background: cadetblue;
-            color: ghostwhite;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5em 1em;
-          }
-
-          h1 {
-            margin: 0;
-          }
-
-          footer {
-            background: cornflowerblue;
-            padding: 0 1em;
-          }
-
-          footer a {
-            color: white;
-          }
-
-          .spinner {
-            height: 1.5em;
-            width: 1.5em;
-            animation: rotate 0.8s infinite linear;
-            border: 0.25em solid white;
-            border-right-color: transparent;
-            border-radius: 50%;
-          }
-
-          @keyframes rotate {
-            0% {
-              transform: rotate(0deg);
-            }
-            100% {
-              transform: rotate(360deg);
-            }
-          }
-
-          .animated {
-            position: relative;
-            display: inline-block;
-            text-decoration: none;
-          }
-          .animated:after {
-            background-color: currentColor;
-            content: "";
-            display: block;
-            height: 1px;
-            transform: scaleX(0.001);
-            transition: transform 0.2s ease-out;
-          }
-          .animated:hover {
-            text-decoration: none;
-          }
-          .animated:hover:after {
-            transform: scaleX(1);
           }
         `}</style>
         <style global jsx>{`
