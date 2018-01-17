@@ -14,12 +14,8 @@ class TorrentList extends Component {
           {torrents.map((torrent) => <Torrent torrent={torrent} onDelete={onDelete} key={torrent.hash} />)}
         </div>
         <style jsx>{`
-          h2 {
-            margin: 0;
-            padding: 1rem 0.5rem;
-          }
           .TorrentList__list {
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid lightgray;
           }
         `}</style>
       </div>

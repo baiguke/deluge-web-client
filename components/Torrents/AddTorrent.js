@@ -1,29 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import Button from "../Button/Button";
+
 const inputName = "magnet-name";
 
 class AddTorrent extends React.Component {
+  state = { isLoading: false };
+
   onAdd = (evt) => {
     evt.preventDefault();
-    this.props.addTorrent(evt.target[inputName].value);
+    this.setState({ isLoading: true });
+    this.props.addTorrent(evt.target[inputName].value).finally(() => this.setState({ isLoading: false }));
   };
+
   render() {
+    const { isLoading } = this.state;
+
     return (
       <div className="AddTorrent">
-        <h2>Add</h2>
+        <h2>Add torrent</h2>
         <form onSubmit={this.onAdd}>
           <input type="text" name={inputName} placeholder="magnet link" />
-          <button type="submit">Add</button>
+          <Button type="submit" isLoading={isLoading} text="Add" />
         </form>
         <style jsx>{`
-          h2 {
-            padding: 0.5rem 1rem;
-            margin-bottom: 0;
-          }
           form {
             display: flex;
-            padding: 0.5em;
+            padding: 0 0.5rem;
           }
           input {
             display: block;

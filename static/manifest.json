@@ -1,0 +1,15 @@
+{
+  "short_name": "Deluge mobile",
+  "name": "Mobile web client for Deluge",
+  "icons": [
+    {
+      "src": "/icons/apple-pre-114.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "cadetblue",
+  "background_color": "whitesmoke"
+}

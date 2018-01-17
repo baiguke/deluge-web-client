@@ -11,7 +11,7 @@ import AddTorrent from "../components/Torrents/AddTorrent";
 class Index extends Component {
   state = {
     isAuthenticated: false,
-    isFetching: false,
+    isFetching: true,
     torrents: []
   };
 
@@ -50,7 +50,7 @@ class Index extends Component {
 
   render() {
     const { isAuthenticated, isFetching, torrents } = this.state;
-    const title = "Deluge web client";
+    const title = "Deluge web";
     return (
       <div className="Index">
         <Header title={title} isFetching={isFetching} />
@@ -92,16 +92,16 @@ class Index extends Component {
             font-family: system-ui, system, sans-serif;
           }
 
-          input,
-          button {
-            border: 1px solid transparent;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 0.5em 1em;
+          h2 {
+            margin: 0;
+            padding: 1rem 0.5rem;
           }
 
-          button {
-            border-color: rgba(127, 127, 127, 0.5);
-            min-width: 60px;
+          input {
+            border: 1px solid rgba(127, 127, 127, 0.2);
+            border-right: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
           }
         `}</style>
       </div>
