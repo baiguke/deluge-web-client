@@ -10,7 +10,7 @@ const Header = ({ className, title, isFetching }) => (
     <Head>
       <meta charSet="utf-8" key="charset" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-      <meta name="theme-color" content="cadetblue" key="themeColor" />
+      <meta name="theme-color" content={primaryColor} key="themeColor" />
       <link rel="manifest" href="/static/manifest.json" />
 
       <meta name="metaDescription" content="Deluge web client for mobile" key="description" />

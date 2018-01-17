@@ -1,15 +1,19 @@
 {
+  "name": "Deluge mobile",
   "short_name": "Deluge mobile",
-  "name": "Mobile web client for Deluge",
+  "description": "Mobile web client for Deluge",
+  "dir": "auto",
+  "lang": "en-US",
+  "orientation": "any",
   "icons": [
     {
-      "src": "/icons/apple-pre-114.png",
+      "src": "/static/icons/apple-pre-114.png",
       "sizes": "114x114",
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/?homescreen=1",
   "display": "standalone",
-  "theme_color": "cadetblue",
+  "theme_color": "cornflowerblue",
   "background_color": "whitesmoke"
 }
