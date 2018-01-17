@@ -6,7 +6,8 @@ npm install && npm run dev
 
 ## Env variables
 
-* `DELUGE_HOST` eg `http://domain.com:port`
+* `process.env.DELUGE_HOST` eg `http://domain.com:port`
+* `process.env.PORT` - server port
 
 ## Tasklist
 
