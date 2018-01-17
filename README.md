@@ -2,4 +2,4 @@
 
 ## ToDo
 
-* [] task
+[] - task
