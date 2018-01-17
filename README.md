@@ -1,5 +1,12 @@
 ## Deluge web client
 
-## ToDo
+```shell
+npm install && npm run dev
+```
 
-[] - task
+## Tasklist
+
+* [x] Login
+* [x] Load torrents
+* [ ] Add torrent
+* [ ] Remove torrent
