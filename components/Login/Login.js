@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import * as delugeWebApi from "../../utils/delugeWebApi";
+import { primaryColor } from "../../utils/variables";
 
 import Button from "../Button/Button";
 
@@ -29,7 +30,7 @@ class Login extends Component {
         <Button type="submit" isLoading={isFetching} text="Log in" />
         <style jsx>{`
           .Login {
-            background: cadetblue;
+            background: ${primaryColor};
             display: flex;
             padding: 0.5em;
           }
