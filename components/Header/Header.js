@@ -9,16 +9,28 @@ import Spinner from "../Spinner/Spinner";
 import { primaryColor } from "../../utils/variables";
 
 class Header extends React.Component {
-  state = { timeSinceDeploy: null };
+  state = { timeSinceBuild: null };
 
   componentDidMount() {
-    const buildTime = Number(process.env.BUILD_TIME);
-    this.setState({ timeSinceDeploy: distanceInWords(Date.now(), buildTime) }); // eslint-disable-line
+    this.updateTimeSinceBuild();
+    this.intervalID = setInterval(this.updateTimeSinceBuild, 1000 * 60);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  buildTime = Number(process.env.BUILD_TIME);
+
+  updateTimeSinceBuild = () => {
+    this.setState({
+      timeSinceBuild: distanceInWords(Date.now(), this.buildTime)
+    });
+  };
 
   render() {
     const { className, title, isFetching } = this.props;
-    const { timeSinceDeploy } = this.state;
+    const { timeSinceBuild } = this.state;
     return (
       <header className={classNames(className, "Header")}>
         <Head>
@@ -53,7 +65,7 @@ class Header extends React.Component {
         <h1>{title}</h1>
         {isFetching && <Spinner />}
         <p>
-          <small>{timeSinceDeploy}</small>
+          <small>{timeSinceBuild}</small>
         </p>
         <style jsx>{`
           header {

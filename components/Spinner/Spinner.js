@@ -7,7 +7,7 @@ const Spinner = ({ className, size = "1.5em" }) => (
     <style jsx>{`
       .Spinner {
         animation: rotate 0.8s infinite linear;
-        border: 0.25em solid white;
+        border: 0.25em solid currentColor;
         border-right-color: transparent;
         border-radius: 50%;
         margin: 0 auto;

@@ -19,7 +19,7 @@ class Torrent extends React.Component {
 
     return (
       <li className={classNames("Torrent", className)}>
-        <span>{torrent.name}</span>
+        <span className="torrent-name">{torrent.name}</span>
         <Button onClick={this.onDelete} isLoading={isLoading} text="Delete" theme="white" />
         <style jsx>{`
           .Torrent {
@@ -28,6 +28,10 @@ class Torrent extends React.Component {
             display: flex;
             justify-content: space-between;
             padding: 0.5em;
+            word-break: break-word;
+          }
+          .torrent-name {
+            padding-right: 0.5em;
           }
           .Torrent:nth-child(odd) {
             background-color: lightgray;

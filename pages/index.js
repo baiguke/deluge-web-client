@@ -1,3 +1,4 @@
+import "promise.prototype.finally";
 import React, { Component } from "react";
 
 import * as delugeWebApi from "../utils/delugeWebApi";
@@ -27,20 +28,21 @@ class Index extends Component {
 
   onLogin = () => {
     this.setState({ isAuthenticated: true });
-    this.fetchTorrents();
+    return this.fetchTorrents();
   };
 
-  onAdd = (magnetLink) => {
-    delugeWebApi.addTorrent(magnetLink);
-  };
+  onAdd = (magnetLink) => delugeWebApi.addTorrent(magnetLink).then(this.fetchTorrents);
 
-  onDelete = (hash) => {
-    delugeWebApi.removeTorrent(hash);
-  };
+  onDelete = (hash) =>
+    delugeWebApi.removeTorrent(hash).then(() =>
+      this.setState({
+        torrents: this.state.torrents.filter((t) => t.hash !== hash)
+      })
+    );
 
   fetchTorrents = () => {
     this.setState({ isFetching: true });
-    delugeWebApi.getTorrents().then(({ result: { torrents } }) =>
+    return delugeWebApi.getTorrents().then(({ result: { torrents } }) =>
       this.setState({
         isFetching: false,
         torrents

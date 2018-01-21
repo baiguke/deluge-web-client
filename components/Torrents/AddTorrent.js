@@ -3,15 +3,16 @@ import PropTypes from "prop-types";
 
 import Button from "../Button/Button";
 
-const inputName = "magnet-name";
-
 class AddTorrent extends React.Component {
   state = { isLoading: false };
 
   onAdd = (evt) => {
     evt.preventDefault();
     this.setState({ isLoading: true });
-    this.props.addTorrent(evt.target[inputName].value).finally(() => this.setState({ isLoading: false }));
+    this.props.addTorrent(this.input.value).finally(() => {
+      this.input.value = "";
+      this.setState({ isLoading: false });
+    });
   };
 
   render() {
@@ -21,7 +22,13 @@ class AddTorrent extends React.Component {
       <div className="AddTorrent">
         <h2>Add torrent</h2>
         <form onSubmit={this.onAdd}>
-          <input type="text" name={inputName} placeholder="magnet link" />
+          <input
+            type="text"
+            placeholder="magnet link"
+            ref={(node) => {
+              this.input = node;
+            }}
+          />
           <Button type="submit" isLoading={isLoading} text="Add" />
         </form>
         <style jsx>{`

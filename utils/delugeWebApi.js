@@ -53,7 +53,7 @@ export function addTorrent(magnetLink) {
 
 export function removeTorrent(hash, removeData = false) {
   return makeRequest({
-    method: "webapi.add_torrent",
+    method: "webapi.remove_torrent",
     params: [hash, removeData]
   });
 }
