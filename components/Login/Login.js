@@ -13,11 +13,15 @@ class Login extends Component {
     isFetching: false
   };
 
+  setInputRef = (node) => {
+    this.input = node;
+  };
+
   login = (evt) => {
     evt.preventDefault();
     this.setState({ isFetching: true });
     delugeWebApi
-      .login(evt.target[PASSWORD_INPUT_NAME].value)
+      .login(this.input.value)
       .then(this.props.onLogin)
       .finally(() => this.setState({ isFetching: false }));
   };
@@ -26,7 +30,13 @@ class Login extends Component {
     const { isFetching } = this.state;
     return (
       <form onSubmit={this.login} className="Login">
-        <input type="password" autoComplete="deluge-password" name={PASSWORD_INPUT_NAME} placeholder="password" />
+        <input
+          type="password"
+          autoComplete="deluge-password"
+          name={PASSWORD_INPUT_NAME}
+          placeholder="password"
+          ref={this.setInputRef}
+        />
         <Button type="submit" isLoading={isFetching} text="Log in" />
         <style jsx>{`
           .Login {

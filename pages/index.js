@@ -13,7 +13,8 @@ class Index extends Component {
   state = {
     isAuthenticated: false,
     isFetching: true,
-    torrents: []
+    torrents: [],
+    error: null
   };
 
   componentDidMount() {
@@ -25,6 +26,21 @@ class Index extends Component {
       })
       .catch(() => this.setState({ isFetching: false }));
   }
+
+  onSuccess = (torrents) => {
+    this.setState({
+      isFetching: false,
+      error: null,
+      torrents
+    });
+  };
+
+  onError = (error) => {
+    this.setState({
+      isFetching: false,
+      error
+    });
+  };
 
   onLogin = () => {
     this.setState({ isAuthenticated: true });
@@ -42,20 +58,17 @@ class Index extends Component {
 
   fetchTorrents = () => {
     this.setState({ isFetching: true });
-    return delugeWebApi.getTorrents().then(({ result: { torrents } }) =>
-      this.setState({
-        isFetching: false,
-        torrents
-      })
-    );
+    return delugeWebApi
+      .getTorrents()
+      .then(({ result: { torrents } }) => this.onSuccess(torrents))
+      .catch(this.onError);
   };
 
   render() {
-    const { isAuthenticated, isFetching, torrents } = this.state;
-    const title = "Deluge mobile";
+    const { error, isAuthenticated, isFetching, torrents } = this.state;
     return (
       <div className="Index">
-        <Header title={title} isFetching={isFetching} />
+        <Header isFetching={isFetching} error={error} />
         <main>
           {!isAuthenticated && <Login onLogin={this.onLogin} />}
           <TorrentList torrents={torrents} onDelete={this.onDelete} />
