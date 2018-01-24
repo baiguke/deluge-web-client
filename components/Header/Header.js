@@ -36,7 +36,6 @@ class Header extends React.Component {
         <Head>
           <meta charSet="utf-8" key="charset" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-          <meta name="theme-color" content={primaryColor} key="themeColor" />
           <link rel="manifest" href="/static/manifest.json" />
 
           <meta name="metaDescription" content="Deluge mobile client" key="description" />
@@ -60,6 +59,18 @@ class Header extends React.Component {
             href="/static/icons/apple-pre-114.png"
             key="appleIconLarge"
           />
+
+          <meta name="theme-color" content={primaryColor} key="themeColor" />
+
+          <meta name="apple-mobile-web-app-capable" content="yes" key="web-app-capable" />
+          <meta name="apple-mobile-web-app-title" content="Deluge mobile" key="web-app-title" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+            key="web-app-status-bar-style"
+          />
+
+          <meta name="format-detection" content="telephone=no" key="format-detection" />
           <title>{title}</title>
         </Head>
         <h1>{title}</h1>
