@@ -84,6 +84,7 @@ class Index extends Component {
 
           main {
             flex: 1;
+            background-color: whitesmoke;
           }
         `}</style>
         <style global jsx>{`
@@ -102,7 +103,7 @@ class Index extends Component {
           }
 
           body {
-            background: whitesmoke;
+            background: cornflowerblue;
             color: #333;
             font-family: system-ui, system, sans-serif;
           }

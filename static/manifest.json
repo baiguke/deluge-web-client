@@ -6,7 +6,7 @@
   "start_url": "/?homescreen=1",
   "display": "standalone",
   "theme_color": "cornflowerblue",
-  "background_color": "whitesmoke",
+  "background_color": "cornflowerblue",
   "icons": [
     {
       "src": "/static/icons/apple-pre-114.png",
