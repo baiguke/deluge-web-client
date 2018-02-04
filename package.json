@@ -11,7 +11,9 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "predeploy": "NODE_ENV=production npm run build",
+    "deploy": "sh scripts/deploy.sh"
   },
   "lint-staged": {
     "*.js": ["eslint", "prettier --write", "git add"],
@@ -20,34 +22,35 @@
   "engines": {
     "node": "9"
   },
+  "files": [".next", "static", "pm2.json", "server.js", "package.json"],
   "keywords": [],
   "author": "hontas",
   "license": "ISC",
   "dependencies": {
-    "classnames": "^2.2.5",
-    "color": "^2.0.1",
-    "date-fns": "^1.29.0",
-    "dotenv": "^4.0.0",
-    "express": "^4.16.2",
-    "http-proxy-middleware": "^0.17.4",
-    "next": "^4.2.3",
-    "promise.prototype.finally": "^3.1.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "webpack": "^3.10.0"
+    "classnames": "2.2.5",
+    "color": "2.0.1",
+    "date-fns": "1.29.0",
+    "dotenv": "4.0.0",
+    "express": "4.16.2",
+    "http-proxy-middleware": "0.17.4",
+    "next": "4.2.3",
+    "promise.prototype.finally": "3.1.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "webpack": "3.10.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "eslint": "^4.16.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
-    "husky": "^0.14.3",
-    "lint-staged": "^6.0.1",
-    "prettier": "1.10.2"
+    "babel-eslint": "8.2.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "eslint": "4.16.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.5.1",
+    "husky": "0.14.3",
+    "lint-staged": "6.0.1",
+    "prettier": "1.10.2",
+    "prop-types": "15.6.0"
   }
 }

@@ -7,7 +7,6 @@ module.exports = {
       ...config,
       plugins: [
         ...config.plugins,
-        new webpack.EnvironmentPlugin(["DELUGE_HOST"]),
         new webpack.DefinePlugin({
           "process.env.BUILD_TIME": JSON.stringify(Date.now())
         })

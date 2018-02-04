@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "name": "Deluge",
+      "script": "./server.js",
+      "cwd": "/home/pi/www/deluge.hontas.duckdns.org",
+      "error_file": "/home/pi/www/deluge.hontas.duckdns.org/logs/app.err.log",
+      "out_file": "/home/pi/www/deluge.hontas.duckdns.org/logs/app.out.log",
+      "exec_mode": "fork_mode",
+      "env": {
+        "PORT": "3000",
+        "NODE_ENV": "production",
+        "DELUGE_HOST": "http://192.168.1.31:8112"
+      }
+    }
+  ]
+}
