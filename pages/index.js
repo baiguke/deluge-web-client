@@ -70,7 +70,7 @@ class Index extends Component {
       <div className="Index">
         <Header isFetching={isFetching} error={error} />
         <main>
-          {!isAuthenticated ? (
+          {isAuthenticated ? (
             <React.Fragment>
               <TorrentList torrents={torrents} onDelete={this.onDelete} />
               <AddTorrent addTorrent={this.onAdd} />
