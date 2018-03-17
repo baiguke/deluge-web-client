@@ -70,9 +70,14 @@ class Index extends Component {
       <div className="Index">
         <Header isFetching={isFetching} error={error} />
         <main>
-          {!isAuthenticated && <Login onLogin={this.onLogin} />}
-          <TorrentList torrents={torrents} onDelete={this.onDelete} />
-          <AddTorrent addTorrent={this.onAdd} />
+          {!isAuthenticated ? (
+            <React.Fragment>
+              <TorrentList torrents={torrents} onDelete={this.onDelete} />
+              <AddTorrent addTorrent={this.onAdd} />
+            </React.Fragment>
+          ) : (
+            <Login onLogin={this.onLogin} />
+          )}
         </main>
         <Footer />
         <style jsx>{`
@@ -83,11 +88,20 @@ class Index extends Component {
           }
 
           main {
-            flex: 1;
             background-color: whitesmoke;
+            flex: 1;
           }
         `}</style>
         <style global jsx>{`
+          html {
+            box-sizing: border-box;
+          }
+          *,
+          *:before,
+          *:after {
+            box-sizing: inherit;
+          }
+
           html,
           body {
             margin: 0;
