@@ -2,7 +2,7 @@ const express = require("express");
 const next = require("next");
 const proxy = require("http-proxy-middleware");
 require("dotenv").config();
-
+const url = `${process.env.DELUGE_HOST || "https://shento.herokuapp.com"}`;
 const url = process.env.DELUGE_HOST;
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
