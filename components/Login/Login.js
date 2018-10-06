@@ -5,7 +5,7 @@ import * as delugeWebApi from "../../utils/delugeWebApi";
 
 import Button from "../Button/Button";
 
-const PASSWORD_INPUT_NAME = "password";
+const PASSWORD_INPUT_NAME = "mima8080";
 
 class Login extends Component {
   state = {
